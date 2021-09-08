@@ -1,9 +1,12 @@
 import CartItem from './CartItem';
 import './Cart.css';
+import {useEffect} from "react-router-dom"
+import {useSelector} from "react-redux"
+
 
 function Cart() {
-  const cart = {};
-  const produce = {};
+  const cart = useSelector(state => state.cart)
+  const produce = useSelector(state=>state.produce);
 
   const cartItems = Object.values(cart)
     .map(item => {

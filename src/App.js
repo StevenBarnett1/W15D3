@@ -9,6 +9,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("USE EFFECT RAN")
     dispatch(populateProduce());
   }, []);
 

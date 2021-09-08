@@ -10,6 +10,7 @@ export const populateProduce = () => {
 }
 
 const produceReducer = (state = {}, action) => {
+  console.log("PRODUCE REDUCER RAN")
   switch (action.type) {
     case POPULATE:
       const newState = {};
