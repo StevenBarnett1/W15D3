@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     console.log("USE EFFECT RAN")
     dispatch(populateProduce());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
