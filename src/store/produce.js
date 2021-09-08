@@ -1,6 +1,7 @@
 import produceData from '../mockData/produce.json';
 
 const POPULATE = 'produce/POPULATE';
+const LIKE = 'produce/LIKE';
 
 export const populateProduce = () => {
   return {
@@ -9,15 +10,24 @@ export const populateProduce = () => {
   }
 }
 
+export const toggleLike = (id) => {
+  return {
+    type: LIKE,
+    id
+  }
+}
+
 const produceReducer = (state = {}, action) => {
-  console.log("PRODUCE REDUCER RAN")
+  const newState = {...state};
   switch (action.type) {
     case POPULATE:
-      const newState = {};
       action.produce.forEach(produce => {
         newState[produce.id] = produce;
       });
       return newState
+    case LIKE:
+      newState[action.id].liked = !newState[action.id].liked;
+      return newState;
     default:
       return state;
   }
